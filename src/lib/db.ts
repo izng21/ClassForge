@@ -15,8 +15,16 @@ export function getPool(): mysql.Pool {
       password: process.env.DB_PASSWORD || "",
       database: process.env.DB_NAME || "class_emailer",
       waitForConnections: true,
-      connectionLimit: 10,
+      // Keep this low: on Vercel every serverless instance opens its own pool.
+      connectionLimit: 3,
+      enableKeepAlive: true,
       dateStrings: false,
+      // TiDB Cloud only accepts TLS connections. Set DB_SSL=true in Vercel.
+      // Leave it unset locally so XAMPP keeps working without TLS.
+      ssl:
+        process.env.DB_SSL === "true"
+          ? { minVersion: "TLSv1.2", rejectUnauthorized: true }
+          : undefined,
     });
   }
   return global.__mysqlPool;
