@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f7f8fc;
+  --paper-raised: #ffffff;
+  --ink: #172033;
+  --ink-soft: #667085;
+  --rule: #e4e7ec;
+  --rule-soft: #eef1f5;
+  --brass: #4f46e5;
+  --brass-deep: #3730a3;
+  --pine: #067647;
+  --pine-deep: #067647;
+  --rust: #b42318;
+  --rust-soft: #fef3f2;
+  --sage-soft: #ecfdf3;
+  --accent-soft: #eef2ff;
+  --neutral-soft: #f2f4f7;
+  --warning-soft: #fffaeb;
+  --warning: #b54708;
+  --slate-100: #eaecf0;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-rule-soft: var(--rule-soft);
+  --color-brass: var(--brass);
+  --color-brass-deep: var(--brass-deep);
+  --color-pine: var(--pine);
+  --color-pine-deep: var(--pine-deep);
+  --color-rust: var(--rust);
+  --color-rust-soft: var(--rust-soft);
+  --color-sage-soft: var(--sage-soft);
+  --color-accent-soft: var(--accent-soft);
+  --color-neutral-soft: var(--neutral-soft);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning: var(--warning);
+  --color-slate-100: var(--slate-100);
+  --font-sans: var(--font-inter);
+}
+
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif; }
+h1, h2, h3 { letter-spacing: -0.025em; }
+.ledger {
+  border-collapse: collapse;
+  width: 100%;
+}
+.ledger th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--paper);
+  padding: 0.75rem 1rem;
+}
+.ledger td {
+  border-bottom: 1px solid var(--rule-soft);
+  padding: 0.95rem 1rem;
+  vertical-align: middle;
+}
+.ledger tr:last-child td {
+  border-bottom: none;
+}
+
+.panel {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgb(16 24 40 / 0.04);
+}
+
+.page-shell { max-width: 75rem; margin: 0 auto; }
+.nav-link { transition: color 150ms ease, background-color 150ms ease; }
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: 0.26rem 0.58rem;
+  font-size: 0.72rem;
+  border-radius: 999px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
