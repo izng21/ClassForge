@@ -32,10 +32,10 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   }
 
   const recipients = await db.query<any>(
-    `SELECT id, row_number, student_number, first_name, last_name, email, activity,
+    `SELECT id, \`row_number\`, student_number, first_name, last_name, email, activity,
             midterm_grade, midterm_equivalent_grade, midterm_remarks, finals_grade,
             finals_equivalent_grade, finals_remarks, row_status, error_reason, send_status, send_error, sent_at
-     FROM mail_recipients WHERE mail_id = ? ORDER BY row_number ASC`,
+     FROM mail_recipients WHERE mail_id = ? ORDER BY \`row_number\` ASC`,
     [id]
   );
 

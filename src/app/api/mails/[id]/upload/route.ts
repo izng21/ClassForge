@@ -75,7 +75,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   for (const r of validatedRows) {
     await db.execute(
       `INSERT INTO mail_recipients
-        (mail_id, row_number, student_number, first_name, last_name, email, activity,
+        (mail_id, \`row_number\`, student_number, first_name, last_name, email, activity,
          midterm_grade, midterm_equivalent_grade, midterm_remarks, finals_grade,
          finals_equivalent_grade, finals_remarks, row_status, error_reason)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,

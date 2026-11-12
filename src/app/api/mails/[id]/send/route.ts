@@ -86,7 +86,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   const batch = await db.query<any>(
     `SELECT * FROM mail_recipients WHERE mail_id = ? AND row_status = 'valid' AND send_status = 'pending'
-     ORDER BY row_number ASC LIMIT ?`,
+     ORDER BY \`row_number\` ASC LIMIT ?`,
     [id, BATCH_SIZE]
   );
 
